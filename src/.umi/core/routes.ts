@@ -8,13 +8,29 @@ export function getRoutes() {
   const routes = [
   {
     "path": "/",
-    "exact": true,
-    "component": require('@/pages/index.tsx').default
-  },
-  {
-    "path": "/test",
-    "exact": true,
-    "component": require('@/pages/test.tsx').default
+    "component": require('@/layouts/index.tsx').default,
+    "routes": [
+      {
+        "path": "/dashboard",
+        "exact": true,
+        "component": require('@/pages/dashboard/index.tsx').default
+      },
+      {
+        "path": "/",
+        "exact": true,
+        "component": require('@/pages/index.tsx').default
+      },
+      {
+        "path": "/test",
+        "exact": true,
+        "component": require('@/pages/test.tsx').default
+      },
+      {
+        "path": "/user/:id",
+        "exact": true,
+        "component": require('@/pages/user/[id].tsx').default
+      }
+    ]
   }
 ];
 
