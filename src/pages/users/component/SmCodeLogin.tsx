@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import IconMap from '@/components/IconMap'
 import { Button } from 'antd'
@@ -9,10 +9,10 @@ interface SmCodeLoginInt {
 	Input: any
 	form: any
 }
-const currentTime = 60 //如果不需要修改这个时间就不需要使用useState
 const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 	const [disabled, setDisabled] = useState(true)
 	const [currentStatus, setCurrentStatus] = useState(true)
+	const [currentTime, setCurrentTime] = useState(60)
 
 	const checkMobile = async () => {
 		try {
@@ -31,7 +31,7 @@ const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 			setCurrentStatus(false)
 
 			// 等待runTime函数执行完setInterval后再执行下面的代码
-			await runTime()
+			await runTime(currentTime)
 
 			setDisabled(false)
 			setCurrentStatus(true)
@@ -39,12 +39,19 @@ const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 		}
 	}
 
-	const runTime = () => {
+	const runTime = (time: number) => {
 		// promise 必须要resolve或者reject
+		// 解决方法：传入一个变量代替currentTime。
 		return new Promise<void>((resolve) => {
-			setTimeout(() => {
-				resolve()
-			}, currentTime)
+			const timer = setInterval(() => {
+				if (time <= 0) {
+					clearInterval(timer)
+					resolve()
+				}
+				// 不知道为什么，在本函数内部使用setCurrentTime，外界能够立刻改变currentTime的值，
+				// 但此函数内currentTime一直不改变
+				setCurrentTime(() => --time)
+			}, 1000)
 		})
 	}
 
