@@ -11,24 +11,64 @@ export function getRoutes() {
     "component": require('@/layouts/index.tsx').default,
     "routes": [
       {
+        "path": "/404Page",
+        "exact": true,
+        "component": require('@/pages/404Page/index.tsx').default
+      },
+      {
+        "path": "/assessment",
+        "exact": true,
+        "component": require('@/pages/assessment/index.tsx').default
+      },
+      {
+        "path": "/attendance",
+        "exact": true,
+        "component": require('@/pages/attendance/index.tsx').default
+      },
+      {
+        "path": "/attendanceInfo",
+        "exact": true,
+        "component": require('@/pages/attendanceInfo/index.tsx').default
+      },
+      {
         "path": "/dashboard",
         "exact": true,
         "component": require('@/pages/dashboard/index.tsx').default
       },
       {
-        "path": "/",
+        "path": "/department",
         "exact": true,
-        "component": require('@/pages/index.tsx').default
+        "component": require('@/pages/department/index.tsx').default
       },
       {
-        "path": "/test",
+        "path": "/level",
         "exact": true,
-        "component": require('@/pages/test.tsx').default
+        "component": require('@/pages/level/index.tsx').default
       },
       {
-        "path": "/user/:id",
+        "path": "/rewardRecord",
         "exact": true,
-        "component": require('@/pages/user/[id].tsx').default
+        "component": require('@/pages/rewardRecord/index.tsx').default
+      },
+      {
+        "path": "/salary",
+        "exact": true,
+        "component": require('@/pages/salary/index.tsx').default
+      },
+      {
+        "path": "/staff",
+        "exact": true,
+        "component": require('@/pages/staff/index.tsx').default
+      },
+      {
+        "path": "/users/forgetPassword",
+        "exact": true,
+        "component": require('@/pages/users/forgetPassword.tsx').default
+      },
+      {
+        "path": "/users/login",
+        "exact": true,
+        "component": require('@/pages/users/login.tsx').default
       }
     ]
   }

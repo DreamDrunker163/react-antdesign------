@@ -3,7 +3,7 @@ import React from 'react'
 
 const index = () => {
 	return (
-		<div>图标界面dashboard</div>
+		<div>公司情况分析界面</div>
 	)
 }
 
