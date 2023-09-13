@@ -34,7 +34,7 @@ const login = () => {
 				{/* 选择当前展示的组件 */}
 				{ComponentSelector({ form, FormItem, Input })}
 				<Row>
-					<Button block={true} type="primary">登陆</Button>
+					<Button block={true} type="primary" className="loginBtn">登陆</Button>
 				</Row>
 				<Row className="ft-12">
 					<Col span={6}>忘记密码？</Col>
