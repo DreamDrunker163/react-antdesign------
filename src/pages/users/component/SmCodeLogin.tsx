@@ -1,17 +1,17 @@
 import React from 'react'
-import { useState } from "react"
+import { useState } from 'react'
 import IconMap from '@/components/IconMap'
-import { Button } from "antd"
-import { loginRule } from "@/utils/rules"
+import { Button } from 'antd'
+import { loginRule } from '@/utils/rules'
 
 interface SmCodeLoginInt {
-	FormItem: any,
-	Input: any,
+	FormItem: any
+	Input: any
 	form: any
 }
+const currentTime = 60 //如果不需要修改这个时间就不需要使用useState
 const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 	const [disabled, setDisabled] = useState(true)
-	const [currentTime, setCurrentTime] = useState(60)
 	const [currentStatus, setCurrentStatus] = useState(true)
 
 	const checkMobile = async () => {
@@ -40,30 +40,38 @@ const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 	}
 
 	const runTime = () => {
-		return new Promise(() => {
-			const timer = setInterval(() => {
-				if (currentTime <= 0) {
-					clearInterval(timer)
-				}
-				// setCurrentTime不生效
-				setCurrentTime(currentTime - 1)
-				console.log(currentTime)
-			}, 1000)
+		// promise 必须要resolve或者reject
+		return new Promise<void>((resolve) => {
+			setTimeout(() => {
+				resolve()
+			}, currentTime)
 		})
 	}
 
 	return (
 		<>
-			<FormItem name="mobileNumber" rules={loginRule.mobileRule} hasFeedback>
-				<Input placeholder="请输入手机号" prefix={IconMap.mobileIcon}
+			<FormItem
+				name="mobileNumber"
+				rules={loginRule.mobileRule}
+				hasFeedback
+			>
+				<Input
+					placeholder="请输入手机号"
+					prefix={IconMap.mobileIcon}
 					onChange={checkMobile}
 				></Input>
 			</FormItem>
 			<FormItem name="code" rules={loginRule.codeRule} hasFeedback>
-				<Input placeholder="请输入验证码" prefix={IconMap.codeIcon}
-					addonAfter={<Button disabled={disabled} onClick={_sendSmCode}>{
-						currentStatus ? "发送验证码" : `${currentTime}秒后重新发送`
-					}</Button>}
+				<Input
+					placeholder="请输入验证码"
+					prefix={IconMap.codeIcon}
+					addonAfter={
+						<Button disabled={disabled} onClick={_sendSmCode}>
+							{currentStatus
+								? '发送验证码'
+								: `${currentTime}秒后重新发送`}
+						</Button>
+					}
 				></Input>
 			</FormItem>
 		</>
