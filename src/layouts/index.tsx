@@ -1,21 +1,19 @@
 import React from 'react'
-import { selectLayout } from "@/utils/selectLayout"
-import BaseLayout from "./BaseLayout"
-import LoginLayout from "./LoginLayout"
+import { selectLayout } from '@/utils/selectLayout'
+import BaseLayout from './BaseLayout'
+import LoginLayout from './LoginLayout'
 
-const Layout = ({ children, history, location }: { children: any, history: any, location: any }) => {
-
+const Layout = ({ children, location }: { children: any; location: any }) => {
 	const layoutMap = {
-		BaseLayout, LoginLayout
+		BaseLayout,
+		LoginLayout
 	}
 
 	const Container = layoutMap[selectLayout(location.pathname)]
 
 	return (
 		<div>
-			<Container>
-				{children}
-			</Container>
+			<Container>{children}</Container>
 		</div>
 	)
 }
