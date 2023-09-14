@@ -78,7 +78,7 @@ const login = ({ history }: { history: any }) => {
 						_id: '9',
 						icon: 'bar-chart',
 						zhName: '考勤信息',
-						route: '/attentanceInfo'
+						route: '/attendanceInfo'
 					}
 				])
 			)
