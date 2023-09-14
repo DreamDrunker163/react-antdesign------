@@ -17,10 +17,8 @@ const SmCodeLogin = ({ FormItem, Input, form }: SmCodeLoginInt) => {
 	const checkMobile = async () => {
 		try {
 			const data = await form.validateFields(['mobileNumber'])
-			console.log(data)
 			setDisabled(false)
 		} catch (err) {
-			console.error(err)
 			setDisabled(true)
 		}
 	}
