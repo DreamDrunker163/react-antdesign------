@@ -22,19 +22,21 @@ const SiderBar = ({ Sider, Menu }: SiderBar) => {
 				</div>
 			</div>
 			<div className="menu-container">
-				<Menu model="inline" selectedKeys={[pathname]}>
-					{routeList?.map((item: iRoute) => {
-						console.log(item)
-						return (
-							<Menu.Item key={item.route}>
+				<Menu
+					model="inline"
+					selectedKeys={[pathname]}
+					items={routeList?.map((item: iRoute) => {
+						return {
+							key: item.route,
+							icon: iconMap[item.icon as keyof typeof iconMap],
+							label: (
 								<Link to={item.route}>
-									{iconMap[item.icon as keyof typeof iconMap]}
 									<span>{item.zhName}</span>
 								</Link>
-							</Menu.Item>
-						)
+							)
+						}
 					})}
-				</Menu>
+				></Menu>
 			</div>
 		</Sider>
 	)
