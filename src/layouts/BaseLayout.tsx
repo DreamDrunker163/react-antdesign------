@@ -1,13 +1,22 @@
 import React from 'react'
+import { Layout, Menu } from 'antd'
+const { Header, Sider, Content } = Layout
+import './BaseLayout.less'
 
-const BaseLayout = (props: any) => {
-	const { children } = props
+import SiderBar from '@/components/SiderBar'
+
+const BaseLayout = ({ children }: { children: any }) => {
+	// 不明白children到底怎么用
 	return (
-		<div>
-			<h1>头部</h1>
-			<p>侧边栏</p>
-			{children}
-		</div>
+		<>
+			<Layout className={'container'}>
+				<SiderBar Sider={Sider} Menu={Menu}></SiderBar>
+				<Layout>
+					<Header>Header</Header>
+					<Content>{children}</Content>
+				</Layout>
+			</Layout>
+		</>
 	)
 }
 
