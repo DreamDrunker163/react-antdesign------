@@ -15,6 +15,16 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   flex-direction: row;
+  padding: 0;
+}
+#root .ant-layout-header .button-container {
+  width: 72px;
+  height: 72px;
+  line-height: 72px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 #root .side-bar {
   box-shadow: rgba(24, 144, 255, 0.1) 0 0 28px 0;

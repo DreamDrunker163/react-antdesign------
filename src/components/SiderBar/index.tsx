@@ -7,9 +7,10 @@ import iconMap from '@/components/IconMap'
 interface SiderBar {
 	Sider: any
 	Menu: any
+	collapse: boolean
 }
 
-const SiderBar = ({ Sider, Menu }: SiderBar) => {
+const SiderBar = ({ Sider, Menu, collapse }: SiderBar) => {
 	const routeList: Array<iRoute> =
 		JSON.parse(sessionStorage.getItem('routeList') || '') || []
 	const pathname = history.location.pathname
@@ -29,11 +30,11 @@ const SiderBar = ({ Sider, Menu }: SiderBar) => {
 						return {
 							key: item.route,
 							icon: iconMap[item.icon as keyof typeof iconMap],
-							label: (
+							label: !collapse ? (
 								<Link to={item.route}>
 									<span>{item.zhName}</span>
 								</Link>
-							)
+							) : null
 						}
 					})}
 				></Menu>
