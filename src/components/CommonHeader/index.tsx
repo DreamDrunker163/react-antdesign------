@@ -5,7 +5,7 @@ import defaultAvatarIcon from '@/common/img/avatar.png'
 
 import { Avatar, Menu } from 'antd'
 
-import { useSelector } from 'umi'
+import { history } from 'umi'
 
 interface iCommonHeader {
 	Header: any
@@ -14,6 +14,12 @@ interface iCommonHeader {
 }
 
 const CommonHeader = ({ Header, collapse, changeCollapse }: iCommonHeader) => {
+	// 用户退出按钮点击
+	const signOut = () => {
+		console.log('click signOut')
+		history.replace('/users/login')
+		sessionStorage.clear()
+	}
 	const items = [
 		{
 			label: (
@@ -29,9 +35,20 @@ const CommonHeader = ({ Header, collapse, changeCollapse }: iCommonHeader) => {
 				</>
 			),
 			key: 0,
-			children: [{ label: '退出', key: 1, icon: iconMap.signOut }]
+			children: [
+				{
+					label: (
+						<>
+							<span onClick={() => signOut()}>退出</span>
+						</>
+					),
+					key: 1,
+					icon: iconMap.signOut
+				}
+			]
 		}
 	]
+
 	return (
 		<Header className="header-wrapper">
 			<div className="button-container" onClick={() => changeCollapse()}>
