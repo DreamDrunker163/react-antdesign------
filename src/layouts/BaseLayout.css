@@ -3,7 +3,7 @@
   box-shadow: rgba(24, 144, 255, 0.1) 0 0 28px 0;
 }
 #root .container {
-  height: 100vh;
+  height: 100%;
 }
 #root .ant-layout-header {
   width: 100%;
