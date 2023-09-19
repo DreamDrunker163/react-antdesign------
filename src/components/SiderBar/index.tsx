@@ -15,11 +15,11 @@ const SiderBar = ({ Sider, Menu, collapse }: SiderBar) => {
 		JSON.parse(sessionStorage.getItem('routeList') || '') || []
 	const pathname = history.location.pathname
 	return (
-		<Sider theme="light" className="side-bar">
+		<Sider theme="light" className="side-bar" collapsed={collapse}>
 			<div className="brand">
 				<div className="logo">
 					<img src={logo} alt="" />
-					<h1>后台管理</h1>
+					{!collapse ? <h1>后台管理</h1> : null}
 				</div>
 			</div>
 			<div className="menu-container">
