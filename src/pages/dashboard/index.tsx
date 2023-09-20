@@ -19,7 +19,6 @@ const index = () => {
 		constellationData,
 		ageColumnList
 	} = useSelector((state: any) => state.dashboard)
-	console.log(ageColumnList)
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch({ type: 'dashboard/initDashboard' })
