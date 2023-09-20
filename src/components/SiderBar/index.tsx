@@ -34,7 +34,9 @@ const SiderBar = ({ Sider, Menu, collapse }: SiderBar) => {
 								<Link to={item.route}>
 									<span>{item.zhName}</span>
 								</Link>
-							) : null
+							) : (
+								<Link to={item.route}></Link>
+							)
 						}
 					})}
 				></Menu>
