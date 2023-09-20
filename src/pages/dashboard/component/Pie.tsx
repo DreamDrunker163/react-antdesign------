@@ -4,11 +4,17 @@ import ReactECharts from 'echarts-for-react'
 const Pie = ({
 	title,
 	renderList,
-	styleData
+	styleData,
+	showSidebar = false,
+	isEmpty = false,
+	isArea = false
 }: {
 	title: string
 	renderList: any
 	styleData: any
+	showSidebar: boolean
+	isEmpty: boolean
+	isArea: boolean
 }) => {
 	const option = {
 		title: {
@@ -18,12 +24,18 @@ const Pie = ({
 		tooltip: {
 			trigger: 'item'
 		},
+		legend: showSidebar && {
+			orient: 'vertical',
+			left: 'left',
+			top: 'center'
+		},
 		series: {
 			name: title,
 			type: 'pie',
-			radius: '50%',
+			radius: isEmpty ? ['50%', '70%'] : '50%',
 			center: ['55%', '55%'],
 			data: renderList,
+			roseType: isArea && 'area',
 			itemStyle: {
 				emphasis: {
 					shadowBlur: 10,

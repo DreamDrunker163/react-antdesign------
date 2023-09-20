@@ -121,13 +121,30 @@ export default {
 				styleData: {
 					width: '49.8%',
 					height: '350px'
+				},
+				showSidebar: true
+			}
+		],
+		ageColumnList: [
+			{
+				title: '员工年龄段',
+				renderList: [
+					{ name: '男', age: '39' },
+					{ name: '女', age: '30' }
+				],
+				styleData: {
+					width: '49.8%',
+					height: '350px'
 				}
 			}
 		],
 		columnList: [
 			{
 				title: '员工年龄段',
-				renderList: [{}],
+				renderList: {
+					xData: [22, 28, 29, 31, 32, 38, 39, 42, 51, 67],
+					yData: [2, 3, 1, 1, 1, 10, 1, 1, 1, 1]
+				},
 				styleData: {
 					width: '49.8%',
 					height: '350px'
@@ -135,28 +152,67 @@ export default {
 			},
 			{
 				title: '部门员工数量',
-				renderList: {},
+				renderList: {
+					xData: [
+						'测试部门',
+						'商品部',
+						'大数据产品部',
+						'技术研发部',
+						'测试部门1',
+						'新研发部',
+						'销售研发部',
+						'技术部',
+						'测试部',
+						'研发部'
+					],
+					yData: [0, 1, 0, 0, 0, 1, 1, 0, 1, 3]
+				},
 				styleData: {
 					width: '49.8%',
 					height: '350px'
-				}
+				},
+				br: true
 			}
 		],
 		marrigeData: {
 			title: '员工婚姻状况',
-			renderList: {},
+			renderList: [
+				{
+					name: '已婚',
+					value: '9'
+				},
+				{
+					name: '未婚',
+					value: '8'
+				}
+			],
 			styleData: {
 				width: '49.8%',
 				height: '350px'
-			}
+			},
+			isEmpty: true
 		},
 		constellationData: {
 			title: '员工星座分布',
-			renderList: {},
+			renderList: [
+				{
+					name: '金牛',
+					value: '11'
+				},
+				{
+					name: '天蝎',
+					value: '3'
+				},
+				{
+					name: '水瓶',
+					value: '3'
+				}
+			],
 			styleData: {
 				width: '49.8%',
 				height: '350px'
-			}
+			},
+			isArea: true
 		}
 	}
 }
