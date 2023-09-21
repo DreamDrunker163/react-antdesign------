@@ -5,19 +5,58 @@
 #root .container {
   height: 100%;
 }
+#root .container .main-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+#root .container .ant-table-wrapper {
+  flex-grow: 1;
+  background-color: #fff;
+  overflow: auto;
+}
+#root .container .ant-table-wrapper .table-container {
+  width: 100%;
+  height: 100%;
+}
+#root .container .ant-table-wrapper .ant-table-thead > tr > th {
+  white-space: nowrap;
+}
+#root .container .ant-table-wrapper .ant-table-row td {
+  white-space: nowrap;
+}
+#root .container .ant-table-wrapper .ant-table-tbody .ant-table-row .ant-table-cell .staff-wrapper {
+  min-width: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+#root .container .ant-table-wrapper .ant-table-tbody .ant-table-row .ant-table-cell .staff-wrapper .detail-icon {
+  display: none;
+  color: #40a9ff;
+  cursor: pointer;
+}
+#root .container .ant-table-wrapper .ant-table-tbody .ant-table-row .ant-table-cell .staff-wrapper input {
+  margin-bottom: 0px;
+}
+#root .container .ant-table-wrapper .ant-table-tbody .ant-table-row .ant-table-cell .staff-wrapper:hover .detail-icon {
+  display: block;
+}
+#root .container .c-p {
+  cursor: pointer;
+}
 #root .ant-layout-header {
   width: 100%;
   height: 72px;
   background-color: #fff;
-  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  flex-direction: row;
   padding: 0;
 }
-#root .ant-layout-header .button-container {
+#root .ant-layout-header .button {
   width: 72px;
   height: 72px;
   line-height: 72px;
@@ -62,8 +101,9 @@
   color: #1890ff;
   white-space: nowrap;
   margin-bottom: 0;
-  background-image: -webkit-gradient(linear, 37.219838% 34.532506%, 36.425669% 93.178216%, from #29cdff, to(#0a60ff), color-stop(0.37, #148eff));
-  background-clip: text;
+  background-image: -webkit-gradient(linear, 37.219838% 34.532506%, 36.425669% 93.178216%, from(#29cdff), to(#0a60ff), color-stop(0.37, #148eff));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #root .side-bar .menu-container {
   height: calc(100vh - 120px);
@@ -71,7 +111,7 @@
   flex: 1;
   padding: 24px 0;
 }
-#root .side-bar .menu-container:webkit-scrollbar-thumb {
+#root .side-bar .menu-container::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 #root .side-bar .menu-container:hover::-webkit-scrollbar-thumb {

@@ -2,19 +2,64 @@
 	height: 100%;
 	.container {
 		height: 100%;
+		.main-content {
+			position: relative;
+			height: 100%;
+			display: flex;
+			justify-content: flex-start;
+			flex-grow: 1;
+		}
+		.ant-table-wrapper {
+			flex-grow: 1;
+			background-color: #fff;
+			overflow: auto;
+			.table-container {
+				width: 100%;
+				height: 100%;
+			}
+			.ant-table-thead > tr > th {
+				white-space: nowrap;
+			}
+			.ant-table-row td {
+				white-space: nowrap;
+			}
+			.ant-table-tbody {
+				.ant-table-row {
+					.ant-table-cell {
+						.staff-wrapper {
+							min-width: 130px;
+							display: flex;
+							justify-content: space-between;
+							.detail-icon {
+								display: none;
+								color: #40a9ff;
+								cursor: pointer;
+							}
+							input {
+								margin-bottom: 0px;
+							}
+							&:hover .detail-icon {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+		.c-p {
+			cursor: pointer;
+		}
 	}
 	.ant-layout-header {
 		width: 100%;
 		height: 72px;
 		background-color: #fff;
-		box-shadow: 4px 4px 40px rgb(0 0 0 / 5%);
+		box-shadow: 4px 4px 40px 0 rgb(0 0 0 / 5%);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		flex-wrap: nowrap;
-		flex-direction: row;
 		padding: 0;
-		.button-container {
+		.button {
 			width: 72px;
 			height: 72px;
 			line-height: 72px;
@@ -63,27 +108,32 @@
 						linear,
 						37.219838% 34.532506%,
 						36.425669% 93.178216%,
-						from (#29cdff),
+						from(#29cdff),
 						to(#0a60ff),
 						color-stop(0.37, #148eff)
 					);
-					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
 				}
 			}
 		}
+
 		.menu-container {
 			height: ~'calc(100vh - 120px)';
 			overflow-x: hidden;
 			flex: 1;
 			padding: 24px 0;
-			&:webkit-scrollbar-thumb {
+
+			&::-webkit-scrollbar-thumb {
 				background-color: transparent;
 			}
+
 			&:hover {
 				&::-webkit-scrollbar-thumb {
 					background-color: rgba(0, 0, 0, 0.2);
 				}
 			}
+
 			:global {
 				.ant-menu-inline {
 					border-right: none;
