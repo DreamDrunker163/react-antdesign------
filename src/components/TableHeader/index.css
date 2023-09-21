@@ -1,0 +1,22 @@
+.table-header-container {
+  position: fixed;
+  left: 270px;
+  top: 24px;
+  width: calc(100% - 395px);
+  display: flex;
+  justify-content: space-between;
+  transition-duration: 0.5s;
+}
+.table-header-container .mr-10 {
+  margin-right: 10px;
+}
+.table-header-container .pagination-container {
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+}
+.table-header-container.big-style {
+  left: 142px;
+  width: calc(100% - 270px);
+  transition-duration: 0.5s;
+}
