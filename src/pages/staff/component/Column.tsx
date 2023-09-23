@@ -3,17 +3,14 @@ import type { DataType, ColumnTypes } from '@/components/Editable'
 import { mapData } from '@/utils/mapData'
 import { formatBirthday, formatYear } from '@/utils/format'
 import loadErrorImg from '@/common/img/load_error.png'
-import { useSelector } from 'umi'
 
 const Columns = ({
 	dataSource,
-	handleAdd,
 	handleDelete,
 	handleSave,
 	openReviewRecord
 }: {
 	dataSource: any
-	handleAdd?: Function
 	handleDelete: Function
 	handleSave?: Function
 	openReviewRecord: Function
@@ -146,13 +143,19 @@ const Columns = ({
 		},
 		{
 			title: '奖惩记录',
-			dataIndex: 'assessment',
-			render: (record, row) => {
-				const getCurrentTableList = () => {
-					console.log(record, row)
-				}
+			dataIndex: 'reWardAndPunishment',
+			render: (record: any, row: any) => {
 				return (
-					<Tag className="c-p" onClick={getCurrentTableList}>
+					<Tag
+						className="c-p"
+						onClick={() =>
+							openReviewRecord({
+								title: '奖惩记录',
+								interfaceName: 'rewardAndPunishment',
+								staffId: row.idNumber
+							})
+						}
+					>
 						查看
 					</Tag>
 				)
@@ -160,13 +163,19 @@ const Columns = ({
 		},
 		{
 			title: '调薪记录',
-			dataIndex: 'assessment',
-			render: (record, row) => {
-				const getCurrentTableList = () => {
-					console.log(record, row)
-				}
+			dataIndex: 'salary',
+			render: (record: any, row: any) => {
 				return (
-					<Tag className="c-p" onClick={getCurrentTableList}>
+					<Tag
+						className="c-p"
+						onClick={() =>
+							openReviewRecord({
+								title: '调薪记录',
+								interfaceName: 'salary',
+								staffId: row.idNumber
+							})
+						}
+					>
 						查看
 					</Tag>
 				)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'umi'
 import { Table } from 'antd'
 import { columnData } from './renderType'
@@ -19,9 +19,6 @@ const RecordTable = ({
 			})
 		)
 	)
-	console.log(staffId)
-	console.log(source)
-
 	return (
 		<Table
 			columns={columnData[interfaceName as keyof typeof columnData]}
